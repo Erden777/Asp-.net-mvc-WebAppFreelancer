@@ -53,7 +53,9 @@ namespace WebAppFreelancer.Controllers
             {
                 db.Categories.Add(category);
                 await db.SaveChangesAsync();
+
                 return RedirectToAction("Index");
+             
             }
 
             return View(category);
