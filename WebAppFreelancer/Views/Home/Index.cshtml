@@ -1,0 +1,144 @@
+﻿
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<div class="jumbotron bg-dark">
+    <div class="container"
+        <h1 style="color:yellow ;font-weight:bold; font-size:32px;">ASP.NET</h1>
+
+        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+        <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    </div>
+</div>
+
+
+<div class="container mt-4">
+    <h2 class="ml-4 mb-4">Choose your TOP users</h2>
+    <div class="input-group mb-3 blocked ml-4">
+        <input type="text" class="form-control" placeholder="Name" aria-label="name" data-autocomplete-source='@Url.Action("AutocompleteSearch", "Home")' name="term" aria-describedby="button-addon2">
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $(function () {
+            $("[data-autocomplete-source]").each(function () {
+                var target = $(this);
+                target.autocomplete({ source: target.attr("data-autocomplete-source") });
+
+            });
+        });
+    </script>
+
+    <div class="row mt-4">
+        @foreach (var b in ViewBag.Users)
+        {
+            <div class="col-2 mr-2 ml-4">
+                <div class="card testimonial-card ">
+                    <div class="card-up indigo lighten-1"></div>
+                    <div class="avatar mx-auto white mt-2">
+                        <img src="https://www.seekpng.com/png/detail/115-1150053_avatar-png-transparent-png-royalty-free-default-user.png" height="100" width="100" class="rounded-circle"
+                             alt="woman avatar">
+                    </div>
+                    <div class="card-body">
+                        <!-- Name -->
+                        <h5 class="card-title">@b.name</h5>
+                        <hr>
+                        <p>
+                            Lorem ipsum dolor
+                        </p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+</div>
+
+<hr class="my-4 mt-5" />
+
+<div class="container mt-4">
+    <h2 class="word ml-4 mb-4">Choose your TOP projects</h2>
+    <div class="input-group mb-3 blocked ml-4">
+        <input type="text" class="form-control" placeholder="Name" aria-label="name" data-autocomplete-source='@Url.Action("AutocompleteSearch", "Home")' name="term" aria-describedby="button-addon2">
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button" id="button-addon1">Reset</button>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $(function () {
+            $("[data-autocomplete-source]").each(function () {
+                var target = $(this);
+                target.autocomplete({ source: target.attr("data-autocomplete-source") });
+
+            });
+        });
+        $("#button-addon2").click(function () {
+            $("body").css("background-color", "black");
+            $("h2").css("color", "orange");
+            $(".card-body").css("background-color", "orange")
+            $(".white").css("background-color" , "orange")
+
+        });
+        $("#button-addon1").click(function () {
+            $("body").css("background-color", "white");
+            $("h2").css("color", "black");
+            $(".card-body").css("background-color", "white")
+        });
+
+    </script>
+    @foreach (var project in ViewBag.Projects)
+    {
+    <div class="col-md">
+        <div class="card mb-4 shadow-sm">
+             <div class="card-body">
+                <h5 class="card-text">@project.project_name .</h5>
+                <p class="card-text">@project.description .</p>
+                <p class="card-text">Price: @project.price $ .</p>
+                <p class="card-text">Category: @project.category.category_name .</p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-outline-info">View</button>
+                    </div>
+                    <small class="text-muted">Deadline: @project.deadline </small>
+                </div>
+            </div>
+        </div>
+    </div>
+    }
+
+<hr class="my-4 mt-5" />
+<div class="container mt-5">
+    <div class="row">
+        @foreach (var serv in ViewBag.Services)
+        {
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">@serv.serviceName</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title">$ @serv.price <small class="text-muted">/ mo</small></h1>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>Level: @serv.level</li>
+                            <li>Duration: @serv.duration</li>
+                            <li style="font-weight:bold">Owner: @serv.user.name</li>
+                        </ul>
+                        <button type="button" class="btn btn-lg btn-block btn-outline-primary">Sign up for free</button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+</div>
+
+    <script src='@Url.Content("~/Scripts/jquery-3.4.1.min.js")' type="text/javascript"></script>
+    <script src='@Url.Content("~/Scripts/jquery-ui-1.12.1.min.js")' type="text/javascript"></script>
+
