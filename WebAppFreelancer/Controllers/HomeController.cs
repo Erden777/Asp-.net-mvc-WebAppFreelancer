@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using WebAppFreelancer.Models;
 using System.Data.Entity;
-
+using WebAppFreelancer.CustomFilters;
 
 namespace WebAppFreelancer.Controllers
 {
@@ -55,6 +55,7 @@ namespace WebAppFreelancer.Controllers
        
 
         [HttpGet]
+        [AuthLog(Roles = "Admin")]
         public ActionResult Admin()
         {
 
