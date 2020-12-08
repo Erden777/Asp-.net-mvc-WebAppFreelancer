@@ -175,41 +175,19 @@
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
+    <Compile Include="Controllers\RoleViewModelsController.cs" />
     <Compile Include="Controllers\ServicesController.cs" />
+    <Compile Include="CustomFilters\AuthLogAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202011172131231_Fist.cs" />
-    <Compile Include="Migrations\202011172131231_Fist.Designer.cs">
-      <DependentUpon>202011172131231_Fist.cs</DependentUpon>
+    <Compile Include="Migrations\202012011739385_serviceCretedTime.cs" />
+    <Compile Include="Migrations\202012011739385_serviceCretedTime.Designer.cs">
+      <DependentUpon>202012011739385_serviceCretedTime.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202011180346410_ProjctsTable.cs" />
-    <Compile Include="Migrations\202011180346410_ProjctsTable.Designer.cs">
-      <DependentUpon>202011180346410_ProjctsTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011180358475_second.cs" />
-    <Compile Include="Migrations\202011180358475_second.Designer.cs">
-      <DependentUpon>202011180358475_second.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011180404497_NewMigratin.cs" />
-    <Compile Include="Migrations\202011180404497_NewMigratin.Designer.cs">
-      <DependentUpon>202011180404497_NewMigratin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011230855584_ResumeTable.cs" />
-    <Compile Include="Migrations\202011230855584_ResumeTable.Designer.cs">
-      <DependentUpon>202011230855584_ResumeTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011241023164_ServiceTable.cs" />
-    <Compile Include="Migrations\202011241023164_ServiceTable.Designer.cs">
-      <DependentUpon>202011241023164_ServiceTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011241219008_test.cs" />
-    <Compile Include="Migrations\202011241219008_test.Designer.cs">
-      <DependentUpon>202011241219008_test.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011241247499_test3.cs" />
-    <Compile Include="Migrations\202011241247499_test3.Designer.cs">
-      <DependentUpon>202011241247499_test3.cs</DependentUpon>
+    <Compile Include="Migrations\202012081724512_Validation.cs" />
+    <Compile Include="Migrations\202012081724512_Validation.Designer.cs">
+      <DependentUpon>202012081724512_Validation.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -220,8 +198,10 @@
     <Compile Include="Models\Country.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Models.cs" />
     <Compile Include="Models\Project.cs" />
     <Compile Include="Models\Resume.cs" />
+    <Compile Include="Models\RoleViewModel.cs" />
     <Compile Include="Models\Service.cs" />
     <Compile Include="Models\WebAppFreelancerContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -235,6 +215,12 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\dashboard.css" />
+    <Content Include="Content\mdb.css" />
+    <Content Include="Content\mdb.lite.css" />
+    <Content Include="Content\mdb.lite.min.css" />
+    <Content Include="Content\mdb.min.css" />
+    <Content Include="Content\style.css" />
+    <Content Include="Content\style.min.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -315,6 +301,8 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\mdb.js" />
+    <Content Include="Scripts\mdb.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />
@@ -454,10 +442,18 @@
     <Content Include="Views\Categories\Details.cshtml" />
     <Content Include="Views\Categories\Edit.cshtml" />
     <Content Include="Views\Categories\Index.cshtml" />
+    <Content Include="Views\RoleViewModels\Create.cshtml" />
+    <Content Include="Views\RoleViewModels\Delete.cshtml" />
+    <Content Include="Views\RoleViewModels\Details.cshtml" />
+    <Content Include="Views\RoleViewModels\Edit.cshtml" />
+    <Content Include="Views\RoleViewModels\Index.cshtml" />
+    <Content Include="Views\Home\AuthorizeFailed.cshtml" />
+    <Content Include="Views\Project\Create.cshtml" />
+    <Content Include="Views\Main\Index.cshtml" />
+    <Content Include="Views\Project\test.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Main\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -471,29 +467,11 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202011172131231_Fist.resx">
-      <DependentUpon>202011172131231_Fist.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202012011739385_serviceCretedTime.resx">
+      <DependentUpon>202012011739385_serviceCretedTime.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011180346410_ProjctsTable.resx">
-      <DependentUpon>202011180346410_ProjctsTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011180358475_second.resx">
-      <DependentUpon>202011180358475_second.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011180404497_NewMigratin.resx">
-      <DependentUpon>202011180404497_NewMigratin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011230855584_ResumeTable.resx">
-      <DependentUpon>202011230855584_ResumeTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011241023164_ServiceTable.resx">
-      <DependentUpon>202011241023164_ServiceTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011241219008_test.resx">
-      <DependentUpon>202011241219008_test.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011241247499_test3.resx">
-      <DependentUpon>202011241247499_test3.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202012081724512_Validation.resx">
+      <DependentUpon>202012081724512_Validation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

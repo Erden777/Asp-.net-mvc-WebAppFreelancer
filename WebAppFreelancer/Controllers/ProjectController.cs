@@ -24,11 +24,24 @@ namespace WebAppFreelancer.Controllers
         [HttpPost]
         public ActionResult AddProject(Project project)
         {
-            project.category = idb.Categories.Find(project.categoryID);
-            idb.Projects.Add(project);
-            idb.SaveChanges();
-            ViewBag.c = project;
-            return RedirectToAction("projects" , "Project");
+            if (ModelState.IsValid)
+            {
+                project.category = idb.Categories.Find(project.categoryID);
+                idb.Projects.Add(project);
+                idb.SaveChanges();
+                ViewBag.c = project;
+                return RedirectToAction("projects", "Project");
+            }
+            return RedirectToAction("index", "Home");
+        }
+
+
+        [Authorize]
+        public ActionResult Create()
+        {
+            SelectList categories = new SelectList(idb.Categories, "categoryid", "category_name");
+            ViewBag.Categories = categories;
+            return View();
         }
     }
 }

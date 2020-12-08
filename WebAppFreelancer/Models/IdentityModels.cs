@@ -23,6 +23,13 @@ namespace WebAppFreelancer.Models
         }
     }
 
+    public class ApplicationRole : IdentityRole
+    {
+        public ApplicationRole() : base() { }
+
+        public ApplicationRole(string roleName) : base(roleName){ }
+    }
+
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
 
@@ -42,5 +49,7 @@ namespace WebAppFreelancer.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<WebAppFreelancer.Models.RoleViewModel> RoleViewModels { get; set; }
     }
 }

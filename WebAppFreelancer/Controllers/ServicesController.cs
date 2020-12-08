@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -7,6 +9,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using WebAppFreelancer.Models;
+
 
 namespace WebAppFreelancer.Controllers
 {
@@ -53,15 +56,19 @@ namespace WebAppFreelancer.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "serviceid,serviceName,price,duration,level")] Service service)
         {
+            ApplicationUserManager userManager = HttpContext.GetOwinContext()
+                                            .GetUserManager<ApplicationUserManager>();
+            ApplicationUser user = userManager.FindByEmail(User.Identity.Name);
             var res = db.Users.Where(s => s.UserName == User.Identity.Name);
             service.user = res.FirstOrDefault();
+            service.createdDate = DateTime.Now;
             if (ModelState.IsValid)
             {
                 db.Services.Add(service);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            ViewBag.User1 = user;
             return View(service);
         }
 

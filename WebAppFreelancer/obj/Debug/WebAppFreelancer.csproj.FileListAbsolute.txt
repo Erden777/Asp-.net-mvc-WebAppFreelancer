@@ -106,12 +106,6 @@ C:\Users\User\source\repos\WebAppFreelancer\WebAppFreelancer\obj\Debug\WebAppFre
 C:\Users\User\source\repos\WebAppFreelancer\WebAppFreelancer\obj\Debug\WebAppFreelancer.csproj.CopyComplete
 C:\Users\User\source\repos\WebAppFreelancer\WebAppFreelancer\obj\Debug\WebAppFreelancer.dll
 C:\Users\User\source\repos\WebAppFreelancer\WebAppFreelancer\obj\Debug\WebAppFreelancer.pdb
-C:\Users\User\source\repos\WebAppFreelancer\WebAppFreelancer\obj\Debug\WebAppFreelancer.Migrations.Fist.resources
+C:\Users\User\source\repos\WebAppFreelancer\WebAppFreelancer\obj\Debug\WebAppFreelancer.Migrations.serviceCretedTime.resources
 C:\Users\User\source\repos\WebAppFreelancer\WebAppFreelancer\obj\Debug\WebAppFreelancer.csproj.GenerateResource.cache
-C:\Users\User\source\repos\WebAppFreelancer\WebAppFreelancer\obj\Debug\WebAppFreelancer.Migrations.ProjctsTable.resources
-C:\Users\User\source\repos\WebAppFreelancer\WebAppFreelancer\obj\Debug\WebAppFreelancer.Migrations.second.resources
-C:\Users\User\source\repos\WebAppFreelancer\WebAppFreelancer\obj\Debug\WebAppFreelancer.Migrations.NewMigratin.resources
-C:\Users\User\source\repos\WebAppFreelancer\WebAppFreelancer\obj\Debug\WebAppFreelancer.Migrations.ResumeTable.resources
-C:\Users\User\source\repos\WebAppFreelancer\WebAppFreelancer\obj\Debug\WebAppFreelancer.Migrations.ServiceTable.resources
-C:\Users\User\source\repos\WebAppFreelancer\WebAppFreelancer\obj\Debug\WebAppFreelancer.Migrations.test.resources
-C:\Users\User\source\repos\WebAppFreelancer\WebAppFreelancer\obj\Debug\WebAppFreelancer.Migrations.test3.resources
+C:\Users\User\source\repos\WebAppFreelancer\WebAppFreelancer\obj\Debug\WebAppFreelancer.Migrations.Validation.resources

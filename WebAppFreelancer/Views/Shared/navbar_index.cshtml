@@ -1,16 +1,27 @@
-﻿
+﻿@using Microsoft.AspNet.Identity
 @{
     ViewBag.Title = "index_Layout";
 }
 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-    <h5 class="my-0 mr-md-auto font-weight-normal">@Html.ActionLink("Freelance-KZ", "Index", "Home", null, new { @class = "p-2 text-dark" })</h5>
+    <h5 class="my-0 mr-md-auto font-weight-normal">@Html.ActionLink("Freelance-KZ", "Index", "Home", null, new { @class = "p-2 text-dark h3", @style = "font-weight:bold; declaration:none" })</h5>
     <nav class="my-2 my-md-0 mr-md-3">
         @Html.ActionLink("Home", "Index", "Home", null, new { @class = "p-2 text-dark" })
         @Html.ActionLink("About", "About", "Home", null, new { @class = "p-2 text-dark" })
         @Html.ActionLink("Contact", "Contact", "Home", null, new { @class = "p-2 text-dark" })
-        @Html.ActionLink("Admin", "Admin", "Home", null, new { @class = "p-2 text-dark" })
+
+        @if (User.IsInRole("Admin"))
+        {
+            @Html.ActionLink("Admin", "Admin", "Home", null, new { @class = "p-2 text-dark" })
+        }
+        @if (User.IsInRole("hirefreelancer")|| User.IsInRole("Admin"))
+        {
+
+            @Html.ActionLink("Post a project", "Create", "Services", routeValues: null, htmlAttributes: new { @class = "p-2 text-dark" })
+        }
+       
     </nav>
 
     @Html.Partial("_LoginPartial")
 </div>
+
 

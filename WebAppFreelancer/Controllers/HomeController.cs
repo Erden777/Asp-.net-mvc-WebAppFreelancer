@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using WebAppFreelancer.Models;
 using System.Data.Entity;
 using WebAppFreelancer.CustomFilters;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.AspNet.Identity;
 
 namespace WebAppFreelancer.Controllers
 {
@@ -19,6 +21,12 @@ namespace WebAppFreelancer.Controllers
 
         public ActionResult Index()
         {
+            IList<string> roles = new List<string> { "Роль не определена" };
+            ApplicationUserManager userManager = HttpContext.GetOwinContext()
+                                           .GetUserManager<ApplicationUserManager>();
+            ApplicationUser user = userManager.FindByEmail(User.Identity.Name);
+            if (user != null)
+                roles = userManager.GetRoles(user.Id);
             ViewBag.Users = idb.Users.ToList();
             IEnumerable<Contact> contacts = idb.contacts;
             IEnumerable<Country> countries = idb.countries;
@@ -29,6 +37,7 @@ namespace WebAppFreelancer.Controllers
             ViewBag.Projects = idb.Projects.ToList();
             ViewBag.Services = service;
             ViewBag.Contacts = Lcontacts;
+            ViewBag.Role = roles;
 
             return View();
         }
@@ -49,7 +58,7 @@ namespace WebAppFreelancer.Controllers
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
-
+            
             return View();
         }
        

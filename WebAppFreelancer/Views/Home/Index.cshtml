@@ -4,19 +4,24 @@
 }
 
 
-<div class="jumbotron bg-dark">
-    <div class="container"
-        <h1 style="color:yellow ;font-weight:bold; font-size:32px;">ASP.NET</h1>
-
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-        <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+<div class="jumbotron default-color-dark">
+    <div class="container " style="min-height:200px">
+        <h1 style="color:white ;font-weight:600; font-size:40px;">
+            Find & Hire
+        </h1>
+        <h1 style="color:white ;font-weight:600; font-size:40px;">
+            Expert Freelancers
+            </h1>
+        <p class="lead" style="color:white">
+            Work with the best freelance talent from around the world on our secure,
+            flexible and cost-effective platform.
+        </p>
+            <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
     </div>
 </div>
-
-
-<div class="container mt-4">
-    <h2 class="ml-4 mb-4">Choose your TOP users</h2>
-    <div class="input-group mb-3 blocked ml-4">
+<div class="container mt-5 mb-5">
+    <h2 class="ml-4 mb-5  text-center h2">Browse our highest-rated mobile engineers & designers</h2>
+    <div class="input-group mb-3 blocked">
         <input type="text" class="form-control" placeholder="Name" aria-label="name" data-autocomplete-source='@Url.Action("AutocompleteSearch", "Home")' name="term" aria-describedby="button-addon2">
         <div class="input-group-append">
             <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
@@ -32,37 +37,85 @@
             });
         });
     </script>
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 
-    <div class="row mt-4">
-        @foreach (var b in ViewBag.Users)
-        {
-            <div class="col-2 mr-2 ml-4">
-                <div class="card testimonial-card ">
-                    <div class="card-up indigo lighten-1"></div>
-                    <div class="avatar mx-auto white mt-2">
-                        <img src="https://www.seekpng.com/png/detail/115-1150053_avatar-png-transparent-png-royalty-free-default-user.png" height="100" width="100" class="rounded-circle"
-                             alt="woman avatar">
-                    </div>
-                    <div class="card-body">
-                        <!-- Name -->
-                        <h5 class="card-title">@b.name</h5>
-                        <hr>
-                        <p>
-                            Lorem ipsum dolor
-                        </p>
-                    </div>
+       
+        <div class="carousel carousel-inner " >
+            <div class="carousel-item active">
+                <div class="row">
+                    @for (int j = 0; j < 4; j++)
+                    {
+                        <div class="col-3 mt-2 mb-2">
+                            <div class="card hoverable p-4 ">
+                                <div class="card-up indigo lighten-1"></div>
+                                <div class="avatar mx-auto white mt-2">
+                                    <img src="https://www.seekpng.com/png/detail/115-1150053_avatar-png-transparent-png-royalty-free-default-user.png" height="100" width="100" class="rounded-circle"
+                                         alt="woman avatar">
+                                </div>
+                                <div class="card-body">
+                                    <!-- Name -->
+                                    <h5 class="card-title">@ViewBag.Users[j].name</h5>
+                                    <hr>
+                                    <p>
+                                        Lorem ipsum dolor
+                                    </p>
+                                    <a href="#" class="btn btn-unique btn-sm" style="font-weight:bold; background-color:green; font-family:Dubai">View Profile</a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
                 </div>
             </div>
-        }
-    </div>
+            @for (int i = 4; i <= (ViewBag.Users.Count - 1) - 4; i += 4)
+            {
+                <div class="carousel-item">
 
+                    <div class="row">
+                        @for (int j = i; j < i + 4; j++)
+                        {
+                            <div class="col-3 mt-2 mb-2">
+                                <div class="card hoverable p-4 ">
+                                    <div class="card-up indigo lighten-1"></div>
+                                    <div class="avatar mx-auto white mt-2">
+                                        <img src="https://www.seekpng.com/png/detail/115-1150053_avatar-png-transparent-png-royalty-free-default-user.png" height="100" width="100" class="rounded-circle"
+                                             alt="woman avatar">
+                                    </div>
+                                    <div class="card-body">
+                                        <!-- Name -->
+                                        <h5 class="card-title">@ViewBag.Users[j].name</h5>
+                                        <hr>
+                                        <p>
+                                            Lorem ipsum dolor
+                                        </p>
+                                        <a href="#" class="btn btn-unique btn-sm" style="font-weight:bold;">View Profile</a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+            }
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev" style="color:red">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
 </div>
+
+
 
 <hr class="my-4 mt-5" />
 
-<div class="container mt-4">
-    <h2 class="word ml-4 mb-4">Choose your TOP projects</h2>
-    <div class="input-group mb-3 blocked ml-4">
+<div class="container mt-5">
+    <h2 class="word ml-4 mb-4 text-center h2">Choose your TOP projects</h2>
+    <div class="input-group mb-4 blocked">
         <input type="text" class="form-control" placeholder="Name" aria-label="name" data-autocomplete-source='@Url.Action("AutocompleteSearch", "Home")' name="term" aria-describedby="button-addon2">
         <div class="input-group-append">
             <button class="btn btn-outline-secondary" type="button" id="button-addon1">Reset</button>
@@ -93,18 +146,24 @@
     </script>
     @foreach (var project in ViewBag.Projects)
     {
-    <div class="col-md">
-        <div class="card mb-4 shadow-sm">
-             <div class="card-body">
+    <div class="col-md-12">
+        <div class="card mb-4 shadow-sm ">
+            <div class="card-body jumbotron hoverable p-4">
+                
                 <h5 class="card-text">@project.project_name .</h5>
                 <p class="card-text">@project.description .</p>
-                <p class="card-text">Price: @project.price $ .</p>
-                <p class="card-text">Category: @project.category.category_name .</p>
+                <p class="card-text">Price: <a href="#" class="font-weight-bold blue-text">
+                                                <strong>@project.price $ .</strong>
+                                                </a></p>
+                <p class="card-text">Category:<a href="">
+                                                  <span class="badge purple mr-1">@project.category.category_name .</span>
+                                            </a> </p>
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                         <button type="button" class="btn btn-sm btn-outline-info">View</button>
                     </div>
-                    <small class="text-muted">Deadline: @project.deadline </small>
+                   
+                    <small class="text-muted">Deadline:@project.deadline.Day.@project.deadline.Month.@project.deadline.Year  </small>
                 </div>
             </div>
         </div>
@@ -116,19 +175,31 @@
     <div class="row">
         @foreach (var serv in ViewBag.Services)
         {
-            <div class="col-md-4">
-                <div class="card mb-4 shadow-sm">
-                    <div class="card-header">
+            <div class="col-md-4 mb-4 hoverable p-4">
+                <div class="card mb-4 shadow-sm ">
+                    <div class="card-header card-footer text-muted success-color white-text ">
                         <h4 class="my-0 font-weight-normal">@serv.serviceName</h4>
                     </div>
                     <div class="card-body">
                         <h1 class="card-title pricing-card-title">$ @serv.price <small class="text-muted">/ mo</small></h1>
                         <ul class="list-unstyled mt-3 mb-4">
-                            <li>Level: @serv.level</li>
-                            <li>Duration: @serv.duration</li>
-                            <li style="font-weight:bold">Owner: @serv.user.name</li>
+                            <a href="" class="dark-grey-text">
+                                Level:
+                                <span class="badge badge-pill danger-color"> @serv.price</span>
+                            </a>
+                            <li>
+                                <a href="" class="dark-grey-text">
+                                    Duration:
+                                    <span class="badge badge-pill info-color-dark"> @serv.duration</span>
+                                </a>
+                            </li>
+
+                            <li style="font-weight:bold ; color:tomato;">Owner: @serv.user.name</li>
                         </ul>
                         <button type="button" class="btn btn-lg btn-block btn-outline-primary">Sign up for free</button>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <p class="mb-0">2 days ago</p>
                     </div>
                 </div>
             </div>

@@ -12,8 +12,7 @@ namespace WebAppFreelancer.Models
         public Project project { get; set; }
         //Comment text 
         public string text { get; set; }
-        //Fk user id
-        public User user { get; set; }
+      
         //posted time
         public DateTime date_time { get; set; }
     }
