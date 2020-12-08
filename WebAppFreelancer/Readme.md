@@ -2,10 +2,9 @@
 ------------------------
 Public releases, this website project has not reached the alpha version yet.
 
-Initially, this was my University project at Vilnius University. Most of the projects done in the University goes by forgotten and dropped out. I have decided
-to continue working on this one and improving my knowledge in some specific fields during the development process.
-Since there's a lot of things that can be tweaked and changed, I want to update the scripts and the documentation before releasing.
-This website project won't be put up to the market or sold. As of right now, you are able to download the project with fair use freely. UI design remade thoroughly learning from Winkel bootstrap examples.
+this is my university project for studying ASP.NET MVC AT IITU. I decided to continue working on this and improve my knowledge in some specific areas during the development process. 
+Since there are many things to tweak and change, I want to update scripts and documentation before release. 
+This web project will not be put up for sale or sold. At the moment, you can download the project for free with fair use rights. The UI design has been completely redesigned by looking at bootstrap examples.
 
 In this project, I am using MVC(Model-Controller View) architecture design patterns also I am working with .Net Visual Studio IDE.
 An Freelancer hosted on localhost and written with the following frameworks (all of those frameworks can be found in use in the project itself):
